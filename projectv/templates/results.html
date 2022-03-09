@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Extractor- Results</title>
+    <style>
+	body {
+            background-image:url('static/kwbg.png');
+	    background-repeat: no-repeat;
+  	    background-attachment: fixed;
+  	    background-size: cover;
+	    background-position: center;
+	    height: 100%;
+	    font-family: Consolas,monaco,monospace;
+	}
+	.container{
+	    height: 600px;
+	    width: 1000px;
+  	    position: relative;
+  	    border-width: 5px;
+	    border-style: solid;
+	    border-color: #FF0070;
+	    margin: 0;
+  	    position: absolute;
+  	    top: 50%;
+  	    left: 50%;
+  	    -ms-transform: translate(-50%, -50%);
+  	    transform: translate(-50%, -50%);
+	    background-color: rgba(244, 133, 161, 0.75); 
+	}
+	h3{
+	   font-size: 30px;
+	   color: blue;
+	   text-align: center;
+	}
+	*{
+  	    box-sizing: border-box;
+	}
+	.column {
+  	    float: left;
+  	    width: 33.33%;
+  	    padding: 10px;
+  	    height: 490px; 
+	}
+	.row:after {
+  	    content: "";
+  	    display: table;
+  	    clear: both;
+	}
+    </style>
+</head>
+<body>
+  <div class="container">
+   <h3>Keywords with precision</h3>
+
+<div class="row">
+  <div class="column" style="background-color:#9AA6FF;">
+    <h4><u>TF-IDF</u></h4>
+    {% if tf_idf %}
+        The Top 10 keywords are:
+	<br><br>
+	<center>
+	<table border=1>
+		<th>Word</th>
+		<th>Score</th>
+        {% for ele in tf_idf %}
+         <tr>
+             <td>{{ele[0]}}</td>
+             <td>{{ele[1]}}</td>
+         </tr>
+         {% endfor %}
+	</table>
+	</center>
+	<br><br>
+	Precision : {{precision_tfidf}}
+	 <br>  
+	Recall : {{recall_tfidf}}
+         <br>
+	F1 : {{f1_tfidf}}
+
+   {% endif %}
+    <p></p>
+  </div>
+  <div class="column" style="background-color:#ADB7FF;">
+    <h4><u>Yake</u></h4>
+     {% if key_phrases %}
+        The Top 10 keywords are:
+	<br><br>
+	<center>
+	<table border=1>
+		<th>Word</th>
+		<th>Score</th>
+        {% for ele in key_phrases %}
+         <tr>
+             <td>{{ele[0]}}</td>
+             <td>{{ele[1]}}</td>
+         </tr>
+         {% endfor %}
+	</table>
+	</center>
+	<br><br>
+	Precision : {{precision_yake}} 
+	<br>
+	Recall : {{recall_yake}}
+	<br>
+	F1 : {{f1_yake}} 
+   {% endif %}
+    <p></p>
+  </div>
+  <div class="column" style="background-color:#BEC6FF;">
+    <h4><u>TextRank</u></h4>
+     {% if text_rank %}
+        The Top 10 keywords are:
+	<br><br>
+	<center>
+	<table border=1>
+		<th>Word</th>
+		<th>Score</th>
+        {% for ele in text_rank %}
+         <tr>
+             <td>{{ele[1]}}</td>
+             <td>{{ele[0]}}</td>
+         </tr>
+         {% endfor %}
+	</table>
+	</center>
+	<br><br>
+	Precision : {{precision_txtrank}} 
+	<br>
+	Recall : {{recall_txtrank}} 
+	 <br>
+	F1 : {{f1_txtrank}} 
+   {% endif %}
+
+    <p></p>
+  </div>
+</div>
+
+  </div>
+</body>
+</html>

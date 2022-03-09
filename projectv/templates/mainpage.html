@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyword Extractor</title>
+    <style>
+	body {
+            background-image:url('static/kwbg.png');
+	    background-repeat: no-repeat;
+  	    background-attachment: fixed;
+  	    background-size: cover;
+	    background-position: center;
+	    height: 100%;
+	    font-family: Consolas,monaco,monospace;
+	}
+	.container{
+	    height: 350px;
+  	    position: relative;
+  	    border-width: 5px;
+	    border-style: solid;
+	    border-color: #FF0070;
+	    margin: 0;
+  	    position: absolute;
+  	    top: 50%;
+  	    left: 50%;
+  	    -ms-transform: translate(-50%, -50%);
+  	    transform: translate(-50%, -50%);
+	    background-color: rgba(244, 133, 161, 0.75); 
+	}
+	.center{
+	    text-align: center;
+	    padding: 12px 30px 0px 30px;
+	}
+	h1{
+	   font-size: 50px;
+	   color: blue;
+	}
+	input[type=text] {
+  	    width: 300px;
+  	    box-sizing: border-box;
+  	    border: 2px solid #ccc;
+	    border-radius: 8px;
+	    font-size: 16px;
+	    background-color: white;
+	    background-image: url('static/sicon.png');
+	    background-position: 10px 10px; 
+	    background-repeat: no-repeat;
+	    padding: 13px 20px 12px 40px;
+	}
+	.btn{
+	    width: 150px;
+	    background-color: #97EBDF;
+  	    border: none;
+  	    color: #FF0070;
+  	    padding: 10px 20px;
+  	    text-align: center;
+  	    text-decoration: none;
+  	    display: inline-block;
+  	    font-size: 13px;
+	    border-radius: 12px;
+	    transition-duration: 0.3s;
+	}
+	.btn:hover{
+	    background-color: #FF0070 ;
+	    color:#97EBDF;
+	}
+    </style>
+</head>
+<body>
+  <div class="container">
+   <div class="center">
+    <h1><b>Keyword Extraction</b></h1>
+    <h3>Enter your URL in the search bar to extract keywords from the webpage!</h3>
+    <form action="/results" method="POST" id="keyword">
+	    <input type="text" name="search" placeholder="Enter URL...">
+	    <br><br>
+           <button type="submit" value="extract" class="btn"><b>Extract Keywords</b></button>
+    </form>
+   </div>
+  </div>
+</body>
+</html>
